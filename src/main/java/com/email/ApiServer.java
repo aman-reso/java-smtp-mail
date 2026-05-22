@@ -17,8 +17,8 @@ import java.util.Properties;
 
 public class ApiServer {
 
-    private static final String SENDER_EMAIL = System.getenv("SMTP_USERNAME");
-    private static final String APP_PASSWORD = System.getenv("SMTP_PASSWORD");
+    private static final String SENDER_EMAIL = "admin@cockroachjantapartyjoin.in";
+    private static final String APP_PASSWORD = "izlzibvcwqlsmejz";
 
     private static final String HTML_TEMPLATE = "<div style=\"background-color: #050505; color: #f3f4f6; font-family: Arial, sans-serif; padding: 40px; text-align: center; border: 2px solid #222; border-radius: 12px; max-width: 600px; margin: auto;\">\n" +
             "    \n" +

@@ -14,8 +14,8 @@ public class SmtpEmailSender {
         String port = "587"; 
         
         // Sender details
-        final String username = System.getenv("SMTP_USERNAME"); 
-        final String password = System.getenv("SMTP_PASSWORD"); 
+        final String username = "admin@cockroachjantapartyjoin.in"; 
+        final String password = "izlzibvcwqlsmejz"; 
         
         // Configurable target email: Uses command line argument if passed, else defaults to amanktor@gmail.com
         String toAddress = (args.length > 0) ? args[0] : "amanktor@gmail.com";
