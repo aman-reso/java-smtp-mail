@@ -51,7 +51,8 @@ public class ApiServer {
             "</div>";
 
     public static void main(String[] args) throws IOException {
-        int port = 8080;
+        String envPort = System.getenv("PORT");
+        int port = (envPort != null && !envPort.isEmpty()) ? Integer.parseInt(envPort) : 8080;
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/send-email", new SendEmailHandler());
         server.setExecutor(null); // creates a default executor
