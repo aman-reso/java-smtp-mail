@@ -98,14 +98,12 @@ public class ApiServer {
                 String name = (request.name != null) ? request.name : "Comrade";
                 String messageBody = HTML_TEMPLATE.replace("{{name}}", name);
 
-                // Send Email Logic
-                boolean success = sendEmail(toAddress, subject, messageBody);
+                // Send Email Logic in Background
+                new Thread(() -> {
+                    sendEmail(toAddress, subject, messageBody);
+                }).start();
 
-                if (success) {
-                    sendResponse(exchange, 200, "{\"message\": \"Email sent successfully to " + toAddress + "\"}");
-                } else {
-                    sendResponse(exchange, 500, "{\"error\": \"Failed to send email. Check server logs.\"}");
-                }
+                sendResponse(exchange, 200, "{\"message\": \"Email request received. It is being sent in the background!\"}");
             } else {
                 sendResponse(exchange, 405, "{\"error\": \"Only POST method is allowed\"}");
             }
